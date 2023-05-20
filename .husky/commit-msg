@@ -1,0 +1,14 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+commit_regex="(feat|chore|bugfix)+.*"
+error_msg="Aborting commit. Your commit message is prefix eg: feat, chore, bugfix"
+commit_msg=$(cat $1)
+
+# Validate commit message param
+if [[ "$commit_msg" =~ $commit_regex ]]; then
+  echo "Your commit message is flawless 💎"
+else
+  echo "${error_msg}"
+  exit 1
+fi
