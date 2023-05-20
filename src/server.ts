@@ -4,16 +4,14 @@ import { app } from "./app";
 import { AppDataSource } from "./database/config";
 
 const server = http.createServer(app);
-const portIs=parseInt(process.env.PORT)
-console.log(portIs,5000)
+console.log(process.env.PORT)
 
-
-server.listen(portIs, async () => {
+server.listen(process.env.PORT, async () => {
 
   try {
     await AppDataSource.initialize();
     console.log("DB connected");
-    console.log("connected to server", portIs);
+    console.log("connected to server", process.env.PORT);
   } catch (e) {
     console.log("Some Error Occurred", e);
   }
