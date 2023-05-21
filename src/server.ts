@@ -4,7 +4,7 @@ import { app } from "./app";
 import { AppDataSource } from "./database/config";
 
 const server = http.createServer(app);
-console.log(process.env.PORT)
+
 
 server.listen(process.env.PORT, async () => {
 
